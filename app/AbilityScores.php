@@ -4,18 +4,23 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Monster extends Model
+class abilityScores extends Model
 {
+    public $timestamps = false;
     protected $primaryKey = 'index';
     protected $keyType = 'string';
 
+
     protected $fillable = [
         'index',
-        // 'proficiency_index'
+        'name',
+        'full_name',
+        'desc',
+        'proficiency_id'
     ];
 
     public function proficiencies()
     {
-        return $this->belongsToMany('App\Monster_Proficiency', 'proficiency_id');
+        return $this->belongsTo('App\Proficiencies', 'abilityScores_index');
     }
 }

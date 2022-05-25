@@ -15,7 +15,10 @@ class MonsterSeeder extends Seeder
         $monstersList = config('monsters');
 
         foreach ($monstersList as $monster) {
-            Monster::create($monster);
+            $monsterFinal = [
+                'index' => $monster['index'],
+            ];
+            Monster::create($monsterFinal);
         }
     }
 }
